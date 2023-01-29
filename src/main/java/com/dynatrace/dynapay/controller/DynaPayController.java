@@ -14,6 +14,8 @@ public class DynaPayController {
     private long cpuPressure;
     @Value("${added.workload.ram}")
     private int memPressureMb;
+    @Value("${payment.failure.probability}")
+    private int paymentFailureProbability;
 
 
     // make a payment
@@ -23,7 +25,7 @@ public class DynaPayController {
 
         double rand = Math.random();
 
-        if (rand >= 0.33) {
+        if (rand >= (double) paymentFailureProbability / 100.0) {
             // successful payment
             dynaPay.setSucceeded(true);
             dynaPay.setMessage("OK");
