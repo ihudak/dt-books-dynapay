@@ -20,6 +20,7 @@ public class DynaPayController extends HardworkingController {
     @PostMapping("")
     public DynaPay createPayment(@RequestBody DynaPay dynaPay) {
         simulateHardWork();
+        simulateCrash();
 
         double rand = Math.random();
 
