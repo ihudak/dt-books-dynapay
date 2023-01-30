@@ -43,6 +43,9 @@ public abstract class HardworkingController {
 
     protected double getPercentFailure() {
         Optional<Config> config = getConfigRepository().findById("dt.failure.payment.percent");
+        if (config.isEmpty()) {
+            return 0.0;
+        }
         double perFail = config.get().getPropertyDouble();
         if (perFail > 100.0) {
             return 100.0;
