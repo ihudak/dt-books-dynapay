@@ -20,7 +20,7 @@ public class DynaPayController extends HardworkingController {
 
     // make a payment
     @PostMapping("")
-    public DynaPay createPayment(@RequestBody DynaPay dynaPay) {
+    public DynaPay createBankPayment(@RequestBody DynaPay dynaPay) {
         simulateHardWork();
         simulateCrash();
 
